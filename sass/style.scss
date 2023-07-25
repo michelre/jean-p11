@@ -3,8 +3,10 @@
  Text Domain
  Author: Webdevelap
  Description: Nathalie Mota custom site
- Version: 0.1
+ Version: 1.0
  */
 
  @import './base/reset';
  @import './pages/home';
+ @import './base/typography';
+ @import './components/header';
