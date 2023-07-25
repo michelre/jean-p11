@@ -3,6 +3,7 @@
 add_theme_support('title-tag');
 add_theme_support('menus');
 register_nav_menu('header', 'header');
+register_nav_menu('footer', 'footer');
 
 function nathmota_enqueue_styles()
 {
