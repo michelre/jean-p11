@@ -326,6 +326,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
@@ -346,7 +347,8 @@ a:visited {
   font-weight: 400;
   font-size: 16px;
 }
-.header__logo {
+
+.header-logo {
   width: 216px;
   height: 14px;
 }
@@ -356,6 +358,71 @@ a:visited {
   justify-content: space-between;
   align-items: center;
   width: 305px;
+}
+
+@media screen and (max-width: 900px) {
+  .desktop-header {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+  }
+}
+@media screen and (min-width: 900px) {
+  .mobile-header {
+    display: none;
+  }
+}
+.mobile-header {
+  position: absolute;
+  width: 100vw;
+  height: 72px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+}
+.mobile-header li {
+  margin-left: 0px;
+  margin-bottom: 58px;
+}
+
+.mobile-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.mobile-header-nav {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 72px;
+  z-index: 50;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  font-size: 44px;
+  background-color: #e00000;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  height: calc(100vh - 72px);
+}
+
+.burger-menu {
+  padding-right: 40px;
+}
+
+.mobile-close-menu-btn {
+  display: none;
+}
+
+.mobile-header-logo {
+  padding-left: 40px;
+  width: 138px;
 }
 
 /*# sourceMappingURL=style.css.map */
