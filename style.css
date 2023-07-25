@@ -418,6 +418,7 @@ a:visited {
 
 .mobile-close-menu-btn {
   display: none;
+  padding-right: 40px;
 }
 
 .mobile-header-logo {
