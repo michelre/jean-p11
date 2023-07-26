@@ -1,0 +1,89 @@
+.contact-modal {
+  display: none;
+  // display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+  form {
+    width: 50%;
+    margin: auto;
+    font-family: $secondary-font;
+    font-size: 12px;
+    @media screen and (max-width: 900px) {
+      width: 75%;
+    }
+    p {
+      margin-top: 24px;
+    }
+    input {
+      margin-top: 6px;
+      height: 40px;
+      border-radius: 8px;
+    }
+    textarea {
+      margin-top: 6px;
+      height: 210px;
+    }
+    input,
+    textarea {
+      padding: 0;
+      width: 100%;
+      resize: none;
+      border: 1px solid #b8bbc2;
+      box-sizing: border-box;
+      border-radius: 8px;
+      font-family: $secondary-font;
+    }
+    .wpcf7-submit {
+      padding: 0;
+      width: 100%;
+      border: none;
+      font-family: $main-font;
+      background-color: #d8d8d8;
+      cursor: pointer;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+    .wpcf7-not-valid-tip {
+      font-size: 12px;
+      margin-bottom: -1rem;
+    }
+    div.wpcf7-response-output {
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+}
+
+.contact-modal-content {
+  width: 597px;
+  height: 759px;
+  border: 5px solid black;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+.contact-modal-header img {
+  margin-top: 18px;
+  height: 106px;
+  transform: translateX(-40px);
+}
+
+@media screen and (max-width: 900px) {
+  .contact-modal-content {
+    height: 100vh;
+  }
+  .contact-modal-header img {
+    height: 55px;
+  }
+}

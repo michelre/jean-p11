@@ -33,6 +33,8 @@
                 <?php wp_nav_menu(['theme_location' => 'header', 'container' => 'false']) ?>
             </nav>
         </div>
-
+        <?php
+        get_template_part('contact-modal') 
+        ?>
     </header>
     <main>
