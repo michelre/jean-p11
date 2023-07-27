@@ -26,6 +26,7 @@ html {
    */
 body {
   margin: 0;
+  background-color: white;
 }
 
 /**
@@ -341,7 +342,7 @@ a:visited {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1440px;
+  max-width: 100%;
   margin: 0 auto;
   height: 80px;
   padding: 0 146px;
@@ -569,6 +570,12 @@ a:visited {
   .contact-modal-header img {
     height: 55px;
   }
+}
+.previous-image,
+.next-image {
+  opacity: 0;
+  height: 81px;
+  width: 71px;
 }
 
 /*# sourceMappingURL=style.css.map */

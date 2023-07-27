@@ -2,6 +2,7 @@
 
 add_theme_support('title-tag');
 add_theme_support('menus');
+add_theme_support( 'post-thumbnails');
 register_nav_menu('header', 'header');
 register_nav_menu('footer', 'footer');
 
