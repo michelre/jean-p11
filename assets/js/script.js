@@ -13,6 +13,15 @@ const singleNextArrow = document.querySelector(".single-next-photo-arrow");
 const prevNavThumbnail = document.querySelector(".previous-nav-thumbnail");
 const nextNavThumbnail = document.querySelector(".next-nav-thumbnail");
 const singleContactBtn = document.querySelector("#single-contact-btn")
+const categoriesBtn = document.querySelector(".categories-btn");
+const categoriesList = document.querySelector(".categories-list");
+const formatsBtn = document.querySelector(".formats-btn");
+const formatsList = document.querySelector(".formats-list");
+const sortBtn = document.querySelector(".sort-btn");
+const sortList = document.querySelector(".sort-list");
+const categoriesChevron = document.querySelector(".categories-chevron");
+const formatsChevron = document.querySelector(".formats-chevron");
+const sortChevron = document.querySelector(".sort-chevron");
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -78,3 +87,20 @@ singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);
 if (singleContactBtn) {
 singleContactBtn.addEventListener('click', openContactmodal)
 }
+
+//Filter buttons
+function toggleDropdown(list, btn, chevron) {
+  list.classList.toggle('show-list');
+  btn.classList.toggle('dropDownBtnOpened');
+  chevron.classList.toggle('chevron-up');
+}
+
+categoriesBtn.addEventListener('click', () => {
+  toggleDropdown(categoriesList, categoriesBtn, categoriesChevron)
+} )
+formatsBtn.addEventListener('click', () => {
+  toggleDropdown(formatsList, formatsBtn, formatsChevron)
+} )
+sortBtn.addEventListener('click', () => {
+  toggleDropdown(sortList, sortBtn, sortChevron)
+} )

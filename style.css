@@ -870,6 +870,12 @@ h2 {
   border: 1.3px solid var(--blues-blue-cta, #215aff);
 }
 
+.dropDownBtnOpened {
+  border: 1.3px solid var(--blues-blue-cta, #215aff);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .dropDownBtntext {
   margin-top: 0;
   margin-bottom: 0;
@@ -880,10 +886,21 @@ h2 {
   height: 20px;
 }
 
+.chevron-up {
+  transform: rotate(180deg);
+}
+
 .dropDownList {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   overflow: hidden;
+  visibility: hidden;
+  opacity: 1;
+}
+
+.show-list {
+  visibility: visible;
+  opacity: 1;
 }
 
 .dropDownListItem {
@@ -897,10 +914,10 @@ h2 {
   cursor: pointer;
 }
 .dropDownListItem:hover {
-  background-color: #FFD6D6;
+  background-color: #ffd6d6;
 }
 .dropDownListItem:active {
-  background-color: #FE5858;
+  background-color: #fe5858;
 }
 
 .list-padding {
@@ -920,10 +937,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   gap: 36px;
-}
-
-.dropDownList {
-  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

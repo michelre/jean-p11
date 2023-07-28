@@ -4,11 +4,11 @@
 <section class="filter-section">
     <div class="left-filter-section">
         <div class="dropdown">
-            <div class="dropDownBtn">
+            <div class="dropDownBtn categories-btn ">
                 <p class="dropDownBtntext">Categories</p>
-                <img class="chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
+                <img class="chevron categories-chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
             </div>
-            <ul class="dropDownList">
+            <ul class="dropDownList categories-list ">
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
@@ -17,11 +17,11 @@
             </ul>
         </div>
         <div class="dropdown">
-            <div class="dropDownBtn">
-                <p class="dropDownBtntext">Categories</p>
-                <img class="chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
+            <div class="dropDownBtn formats-btn">
+                <p class="dropDownBtntext">Formats</p>
+                <img class="chevron formats-chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
             </div>
-            <ul class="dropDownList">
+            <ul class="dropDownList formats-list">
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
                 <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
@@ -32,16 +32,13 @@
     </div>
     <div class="right-filter-section" >
     <div class="dropdown">
-            <div class="dropDownBtn">
-                <p class="dropDownBtntext">Categories</p>
-                <img class="chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
+            <div class="dropDownBtn sort-btn">
+                <p class="dropDownBtntext">Trier par</p>
+                <img class="chevron sort-chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
             </div>
-            <ul class="dropDownList">
-                <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
-                <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
-                <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
-                <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
-                <li class="dropDownListItem"><span class="list-padding">ubiuzece</span></li>
+            <ul class="dropDownList sort-list">
+                <li class="dropDownListItem"><span class="list-padding">Des plus récentes aux plus anciennes</span></li>
+                <li class="dropDownListItem"><span class="list-padding">Des plus anciennes au plus récentes</span></li>
             </ul>
         </div>
     </div>
