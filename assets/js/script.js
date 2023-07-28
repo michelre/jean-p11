@@ -8,6 +8,10 @@ const contactModalBtnMobile = document.querySelector(
 );
 const contactModalHeader = document.querySelector(".contact-modal-header");
 const contactModalForm = document.querySelector(".wpcf7-form");
+const singlePrevArrow = document.querySelector(".single-prev-photo-arrow");
+const singleNextArrow = document.querySelector(".single-next-photo-arrow");
+const prevNavThumbnail = document.querySelector(".previous-nav-thumbnail");
+const nextNavThumbnail = document.querySelector(".next-nav-thumbnail");
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -44,4 +48,23 @@ document.addEventListener("click", function (event) {
 contactModalHeader.addEventListener("click", closeContactmodal);
 
 //Close modal on successful form submission
-document.addEventListener('wpcf7mailsent',closeContactmodal);
+document.addEventListener("wpcf7mailsent", closeContactmodal);
+
+// //Single photo post navigation
+function showPrevNavThumbnail() {
+  prevNavThumbnail.style.opacity = "1";
+}
+function hidePrevNavThumbnail() {
+  prevNavThumbnail.style.opacity = "0";
+}
+singlePrevArrow.addEventListener("mouseover", showPrevNavThumbnail);
+singlePrevArrow.addEventListener("mouseout", hidePrevNavThumbnail);
+
+function showNextNavThumbnail() {
+  nextNavThumbnail.style.opacity = "1";
+}
+function hideNextNavThumbnail() {
+  nextNavThumbnail.style.opacity = "0";
+}
+singleNextArrow.addEventListener("mouseover", showNextNavThumbnail);
+singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);

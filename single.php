@@ -30,10 +30,10 @@ while (have_posts()) : the_post(); ?>
                     $prevPhoto = get_previous_post();
                     $nextPhoto = get_next_post();
                     if ($prevPhoto) : ?>
-                        <img class="previous-image " src="<?php echo get_the_post_thumbnail_url($prevPhoto->ID); ?>" alt="Photo précédente">
+                        <img class="previous-nav-thumbnail" src="<?php echo get_the_post_thumbnail_url($prevPhoto->ID); ?>" alt="Photo précédente">
                     <?php endif; ?>
                     <?php if ($nextPhoto) : ?>
-                        <img class="next-image" src="<?php echo get_the_post_thumbnail_url($nextPhoto->ID); ?>" alt="Photo suivante">
+                        <img class="next-nav-thumbnail" src="<?php echo get_the_post_thumbnail_url($nextPhoto->ID); ?>" alt="Photo suivante">
                     <?php endif; ?>
                 </div>
 
