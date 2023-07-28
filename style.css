@@ -669,7 +669,25 @@ a:visited {
 .single-bottom-section {
   padding-left: 5vw;
   padding-right: 5vw;
-  width: 71px;
+  padding-bottom: 64px;
+}
+.single-bottom-section h2 {
+  font-family: "Space Mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  padding-top: 77px;
+  padding-bottom: 51px;
+}
+
+.similar-photos {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 53px;
+}
+
+.single-more-btn {
+  margin: 0 auto;
 }
 
 .photo-card {
