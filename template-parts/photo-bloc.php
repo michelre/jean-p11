@@ -1,0 +1,1 @@
+<img class="photo-image" src="<?php echo get_field('photo'); ?>" alt="<?php get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)?>">
