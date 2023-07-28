@@ -9,12 +9,13 @@
     .photo-card-category {
       opacity: 1;
     }
-    .eye-icon, .fullscreen-icon {
-        display: block;
+    .eye-icon,
+    .fullscreen-icon {
+      display: block;
     }
   }
-  @media screen and ( max-width:900px ){
-    width: 95vw;
+  @media screen and (max-width: 900px) {
+    width: 90vw;
   }
 }
 
