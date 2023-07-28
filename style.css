@@ -333,10 +333,6 @@ a:visited {
   color: inherit;
 }
 
-.banner-image {
-  width: 100%;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -843,6 +839,91 @@ h2 {
 .mota-button:hover {
   background-color: black;
   color: white;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.dropDown {
+  width: 262px;
+}
+
+.dropDownBtn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 262px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1.3px solid var(--blues-gray-2, #b8bbc2);
+  padding-left: 18px;
+  padding-right: 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.dropDownBtn:hover {
+  border: 1.3px solid var(--blues-blue-cta, #215aff);
+}
+
+.dropDownBtntext {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+}
+
+.dropDownList {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+
+.dropDownListItem {
+  height: 42px;
+  width: 262px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dropDownListItem:hover {
+  background-color: #FFD6D6;
+}
+.dropDownListItem:active {
+  background-color: #FE5858;
+}
+
+.list-padding {
+  padding-left: 24px;
+}
+
+.filter-section {
+  display: flex;
+  width: 1148px;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.left-filter-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.dropDownList {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

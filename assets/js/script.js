@@ -58,17 +58,23 @@ function showPrevNavThumbnail() {
 function hidePrevNavThumbnail() {
   prevNavThumbnail.style.opacity = "0";
 }
+
+if (singlePrevArrow) {
 singlePrevArrow.addEventListener("mouseover", showPrevNavThumbnail);
 singlePrevArrow.addEventListener("mouseout", hidePrevNavThumbnail);
-
+}
 function showNextNavThumbnail() {
   nextNavThumbnail.style.opacity = "1";
 }
 function hideNextNavThumbnail() {
   nextNavThumbnail.style.opacity = "0";
 }
+if (singleNextArrow) {
 singleNextArrow.addEventListener("mouseover", showNextNavThumbnail);
 singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);
+}
 
 //Single contact button contbact modal handling
+if (singleContactBtn) {
 singleContactBtn.addEventListener('click', openContactmodal)
+}
