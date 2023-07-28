@@ -56,7 +56,7 @@ while (have_posts()) : the_post(); ?>
             $similarPhotos = new WP_Query([
                 'post_type' => 'photo',
                 'post__not_in' => [get_the_ID()],
-                'post_per_page' => '2',
+                'posts_per_page' => '2',
                 'category_name' => get_the_category()[0]->cat_name,
                 'orderby' => 'rand',
             ]);

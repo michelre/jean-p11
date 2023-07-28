@@ -578,4 +578,72 @@ a:visited {
   width: 71px;
 }
 
+.photo-card {
+  width: 564px;
+  height: 495px;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+}
+.photo-card:hover .photo-card-title,
+.photo-card:hover .photo-card-category {
+  opacity: 1;
+}
+.photo-card:hover .eye-icon, .photo-card:hover .fullscreen-icon {
+  display: block;
+}
+@media screen and (max-width: 900px) {
+  .photo-card {
+    width: 95vw;
+  }
+}
+
+.photo-card-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.photo-card-image:hover {
+  opacity: 0.4;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.fullscreen-icon {
+  position: absolute;
+  right: 18px;
+  top: 11px;
+  width: 34px;
+  cursor: pointer;
+  display: none;
+}
+
+.photo-card-title,
+.photo-card-category {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  margin: 0;
+}
+
+.photo-card-title {
+  left: 17px;
+  bottom: 12px;
+  opacity: 0;
+}
+
+.photo-card-category {
+  right: 17px;
+  bottom: 12px;
+  opacity: 0;
+  cursor: none;
+}
+
 /*# sourceMappingURL=style.css.map */
