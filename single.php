@@ -62,7 +62,7 @@ while (have_posts()) : the_post(); ?>
             ]);
             ?>
             <?php while ($similarPhotos->have_posts()) : $similarPhotos->the_post();
-                get_template_part('template-parts/photo-bloc');
+                get_template_part('template-parts/photo-card');
             ?>
             <?php endwhile;
             wp_reset_postdata(); ?>
