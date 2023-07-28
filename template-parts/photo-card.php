@@ -8,6 +8,6 @@
     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen-icon.png" alt="Agrandir la photo" class="fullscreen-icon">
 
     <p class="photo-card-title"><?php the_title(); ?></p>
-    <div class="photo-card-category"><?php the_category() ?></div>
+    <div class="photo-card-category"><?php echo strip_tags(get_the_term_list($post->ID, 'category')); ?></div>
 
 </div>
