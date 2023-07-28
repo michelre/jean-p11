@@ -20,7 +20,7 @@ while (have_posts()) : the_post(); ?>
         <div class="single-photo-nav-section">
             <div class="single-photo-nav-section-left">
                 <p class="texte">Cette photo vous intéresse ?</p>
-                <div class="mota-button">Contact</div>
+                <div class="mota-button single-contact-btn">Contact</div>
             </div>
 
             <div class="single-photo-nav-section-right">

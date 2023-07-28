@@ -12,6 +12,7 @@ const singlePrevArrow = document.querySelector(".single-prev-photo-arrow");
 const singleNextArrow = document.querySelector(".single-next-photo-arrow");
 const prevNavThumbnail = document.querySelector(".previous-nav-thumbnail");
 const nextNavThumbnail = document.querySelector(".next-nav-thumbnail");
+const singleContactBtn = document.querySelector(".single-contact-btn")
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -68,3 +69,6 @@ function hideNextNavThumbnail() {
 }
 singleNextArrow.addEventListener("mouseover", showNextNavThumbnail);
 singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);
+
+//Single contact button contbact modal handling
+singleContactBtn.addEventListener('click', openContactmodal)
