@@ -568,6 +568,8 @@ a:visited {
 }
 .single-top-section {
   height: calc(100vh - 80px);
+  max-width: 1148px;
+  margin: 0 auto;
   padding-top: 38px;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -576,6 +578,7 @@ a:visited {
   .single-top-section {
     padding-left: 0;
     padding-right: 0;
+    height: auto;
   }
 }
 
@@ -586,6 +589,7 @@ a:visited {
 @media screen and (max-width: 900px) {
   .single-photo-and-description {
     flex-direction: column-reverse;
+    height: auto;
   }
 }
 
@@ -597,14 +601,13 @@ a:visited {
   .single-description,
   .single-photo-image-container {
     width: 100vw;
-    padding-left: 5vw;
   }
 }
 
 @media screen and (max-width: 900px) {
   .single-photo-image-container {
     width: 90vw;
-    padding-left: 5vw;
+    align-self: center;
   }
 }
 .single-description {
@@ -620,6 +623,11 @@ a:visited {
   line-height: 58px;
   font-weight: 400;
 }
+@media screen and (max-width: 900px) {
+  .single-description h1 {
+    font-size: 46px;
+  }
+}
 .single-description p {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -627,6 +635,8 @@ a:visited {
 @media screen and (max-width: 900px) {
   .single-description {
     align-self: flex-start;
+    box-sizing: border-box;
+    padding-left: 5vw;
   }
 }
 
@@ -724,6 +734,8 @@ a:visited {
   padding-left: 5vw;
   padding-right: 5vw;
   padding-bottom: 64px;
+  max-width: 1148px;
+  margin: 0 auto;
 }
 @media screen and (max-width: 900px) {
   .single-bottom-section {
@@ -773,6 +785,7 @@ h2 {
 @media screen and (max-width: 900px) {
   .photo-card {
     width: 90vw;
+    height: 278px;
   }
 }
 
@@ -845,9 +858,10 @@ h2 {
   width: 100%;
 }
 
-.dropDown {
-  width: 262px;
-  position: relative;
+@media screen and (max-width: 900px) {
+  .dropdown {
+    margin-left: 5vw;
+  }
 }
 
 .dropDownBtn {
@@ -936,11 +950,52 @@ h2 {
   padding-top: 80px;
   padding-bottom: 40px;
 }
+@media screen and (max-width: 900px) {
+  .filter-section {
+    flex-direction: column;
+    width: 100vw;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
 
 .left-filter-section {
   display: flex;
   justify-content: space-between;
   gap: 36px;
+}
+@media screen and (max-width: 900px) {
+  .left-filter-section {
+    flex-direction: column;
+    width: 100vw;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sort-btn {
+    margin-top: 20px;
+  }
+}
+.gallery-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 1148px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 900px) {
+  .gallery-section {
+    width: 100vw;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.load-more-btn {
+  margin: 0 auto;
+  margin-top: 29px;
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

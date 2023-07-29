@@ -2,9 +2,10 @@
   width: 100%;
 }
 
-.dropDown {
-  width: 262px;
-  position: relative;
+.dropdown {
+  @media screen and (max-width: 900px) { 
+  margin-left: 5vw;
+      }
 }
 
 .dropDownBtn {
@@ -92,10 +93,50 @@
   justify-content: space-between;
   padding-top: 80px;
   padding-bottom: 40px;
+  @media screen and (max-width: 900px) { 
+    flex-direction: column;
+    width: 100vw;
+    padding-top: 20px;
+    padding-bottom: 20px;
+      }
 }
 
 .left-filter-section {
   display: flex;
   justify-content: space-between;
   gap: 36px;
+  @media screen and (max-width: 900px) { 
+    flex-direction: column;
+    width: 100vw;
+    gap: 20px
+      }
+}
+
+@media screen and (max-width: 900px) { 
+  .sort-btn {
+    margin-top: 20px;
+  }
+}
+
+.gallery-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 1148px;
+  margin: 0 auto;
+  @media screen and (max-width: 900px) { 
+
+width: 100vw;
+justify-content: center;
+gap: 20px;
+
+
+
+  }
+}
+
+.load-more-btn {
+  margin: 0 auto;
+  margin-top: 29px;
+  margin-bottom: 40px;
 }

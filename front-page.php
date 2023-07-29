@@ -42,9 +42,25 @@
             </ul>
         </div>
     </div>
-
-
 </section>
+<section class="gallery-section">
+        <?php
+        $galleryPhotos = new WP_Query(
+            array(
+                'post_type' => 'photo',
+                'posts_per_page' => 12,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            )
+        );
+        while ($galleryPhotos->have_posts()) : $galleryPhotos->the_post();
+            get_template_part('template-parts/photo-card');
+
+        endwhile;
+        wp_reset_postdata();
+        ?>
+                <div class="mota-button load-more-btn">Charger plus</div>     
+    </section>
 </main>
 
 <?php get_footer() ?>

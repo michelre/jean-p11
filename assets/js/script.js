@@ -117,3 +117,6 @@ sortBtn.addEventListener('click', () => {
 if (singlePhotoRef) {
   photoRefInput.value = singlePhotoRef.innerHTML.replace('Référence : ','');
 }
+
+
+//Ajax requests

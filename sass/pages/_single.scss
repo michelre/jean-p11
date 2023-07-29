@@ -1,11 +1,15 @@
 .single-top-section {
+  
   height: calc(100vh - 80px);
+  max-width: 1148px;
+  margin: 0 auto;
   padding-top: 38px;
   padding-left: 5vw;
   padding-right: 5vw;
   @media screen and (max-width: 900px) {
     padding-left: 0;
     padding-right: 0;
+    height: auto;
   }
 }
 
@@ -14,6 +18,7 @@
   height: calc(100vh - 198px);
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
+    height: auto;
   }
 }
 
@@ -22,14 +27,14 @@
   width: 50vw;
   @media screen and (max-width: 900px) {
     width: 100vw;
-    padding-left: 5vw;
+    
   }
 }
 
 @media screen and (max-width: 900px) {
   .single-photo-image-container {
     width: 90vw;
-    padding-left: 5vw;
+    align-self: center;
   }
 }
 
@@ -43,6 +48,9 @@
     font-style: italic;
     line-height: 58px;
     font-weight: 400;
+    @media screen and (max-width: 900px) { 
+      font-size: 46px;
+    }
   }
   p {
     margin-top: 20px;
@@ -51,7 +59,10 @@
   align-self: flex-end;
   @media screen and (max-width: 900px) {
     align-self: flex-start;
+    box-sizing: border-box;
+    padding-left: 5vw;
   }
+
 }
 
 .single-photo-image {
@@ -142,6 +153,8 @@
   padding-bottom: 64px;
   @media screen and (max-width: 900px) {
     text-align: center; }
+    max-width: 1148px;
+  margin: 0 auto;
 }
   h2 {
     font-family: $main-font;
@@ -149,11 +162,11 @@
     font-weight: 400;
     padding-top: 77px;
     padding-bottom: 51px;
-    
 }
 
 .similar-photos {
   display: flex;
+
   justify-content: space-between;
   gap: 20px;
   padding-bottom: 53px;
