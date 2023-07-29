@@ -938,6 +938,11 @@ h2 {
   background-color: #fe5858;
 }
 
+.activeListItem {
+  background: #E00000;
+  color: white;
+}
+
 .list-padding {
   padding-left: 24px;
 }

@@ -12,7 +12,7 @@ const singlePrevArrow = document.querySelector(".single-prev-photo-arrow");
 const singleNextArrow = document.querySelector(".single-next-photo-arrow");
 const prevNavThumbnail = document.querySelector(".previous-nav-thumbnail");
 const nextNavThumbnail = document.querySelector(".next-nav-thumbnail");
-const singleContactBtn = document.querySelector("#single-contact-btn")
+const singleContactBtn = document.querySelector("#single-contact-btn");
 const categoriesBtn = document.querySelector(".categories-btn");
 const categoriesList = document.querySelector(".categories-list");
 const formatsBtn = document.querySelector(".formats-btn");
@@ -71,8 +71,8 @@ function hidePrevNavThumbnail() {
 }
 
 if (singlePrevArrow) {
-singlePrevArrow.addEventListener("mouseover", showPrevNavThumbnail);
-singlePrevArrow.addEventListener("mouseout", hidePrevNavThumbnail);
+  singlePrevArrow.addEventListener("mouseover", showPrevNavThumbnail);
+  singlePrevArrow.addEventListener("mouseout", hidePrevNavThumbnail);
 }
 function showNextNavThumbnail() {
   nextNavThumbnail.style.opacity = "1";
@@ -81,42 +81,122 @@ function hideNextNavThumbnail() {
   nextNavThumbnail.style.opacity = "0";
 }
 if (singleNextArrow) {
-singleNextArrow.addEventListener("mouseover", showNextNavThumbnail);
-singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);
+  singleNextArrow.addEventListener("mouseover", showNextNavThumbnail);
+  singleNextArrow.addEventListener("mouseout", hideNextNavThumbnail);
 }
 
 //Single contact button contbact modal handling
 if (singleContactBtn) {
-singleContactBtn.addEventListener('click', openContactmodal)
+  singleContactBtn.addEventListener("click", openContactmodal);
 }
 
 //Filter buttons
 function toggleDropdown(list, btn, chevron) {
-  list.classList.toggle('show-list');
-  btn.classList.toggle('dropDownBtnOpened');
-  chevron.classList.toggle('chevron-up');
+  list.classList.toggle("show-list");
+  btn.classList.toggle("dropDownBtnOpened");
+  chevron.classList.toggle("chevron-up");
 }
 
+//open close categories dropdown
 if (categoriesBtn) {
-categoriesBtn.addEventListener('click', () => {
-  toggleDropdown(categoriesList, categoriesBtn, categoriesChevron)
-} )
+  categoriesBtn.addEventListener("click", () => {
+    toggleDropdown(categoriesList, categoriesBtn, categoriesChevron);
+  });
+  // Check if the click is outside the dropdown
+  document.addEventListener("click", function (event) {
+    if (
+      !categoriesList.contains(event.target) &&
+      event.target !== categoriesBtn
+    ) {
+      // Check if the dropdown is currently open
+      if (categoriesBtn.classList.contains("dropDownBtnOpened")) {
+        toggleDropdown(categoriesList, categoriesBtn, categoriesChevron);
+      }
+    }
+  });
 }
 
+//open close formats dropdown
 if (formatsBtn) {
-formatsBtn.addEventListener('click', () => {
-  toggleDropdown(formatsList, formatsBtn, formatsChevron)
-} )
+  formatsBtn.addEventListener("click", () => {
+    toggleDropdown(formatsList, formatsBtn, formatsChevron);
+  });
+  // Check if the click is outside the dropdown
+  document.addEventListener("click", function (event) {
+    if (!formatsList.contains(event.target) && event.target !== formatsBtn) {
+      // Check if the dropdown is currently open
+      if (formatsBtn.classList.contains("dropDownBtnOpened")) {
+        toggleDropdown(formatsList, formatsBtn, formatsChevron);
+      }
+    }
+  });
 }
+
+//open close sort by date dropdown
 if (sortBtn) {
-sortBtn.addEventListener('click', () => {
-  toggleDropdown(sortList, sortBtn, sortChevron)
-} )
+  sortBtn.addEventListener("click", () => {
+    toggleDropdown(sortList, sortBtn, sortChevron);
+  });
+  // Check if the click is outside the dropdown
+  document.addEventListener("click", function (event) {
+    if (!sortList.contains(event.target) && event.target !== sortBtn) {
+      // Check if the dropdown is currently open
+      if (sortBtn.classList.contains("dropDownBtnOpened")) {
+        toggleDropdown(sortList, sortBtn, sortChevron);
+      }
+    }
+  });
 }
+
+//Set color for active drop down list item
+function toggleListItem(listitem) {
+  listitem.classList.toggle("activeListItem");
+}
+
+//Categories
+const categoriesListItems = Array.from(
+  document.getElementsByClassName("categoriesListItem")
+);
+categoriesListItems.forEach((listItem) => {
+  listItem.addEventListener("click", () => {
+    categoriesListItems.forEach((listItem) =>
+      listItem.classList.remove("activeListItem")
+    );
+    toggleListItem(listItem);
+  });
+});
+
+//Formats
+const formatsListItems = Array.from(
+  document.getElementsByClassName("formatsListItem")
+);
+console.log(formatsListItems);
+formatsListItems.forEach((listItem) => {
+  listItem.addEventListener("click", () => {
+    formatsListItems.forEach((listItem) =>
+      listItem.classList.remove("activeListItem")
+    );
+    toggleListItem(listItem);
+  });
+});
+
+//Sort by date
+const sortListItems = Array.from(
+  document.getElementsByClassName("sortListItem")
+);
+
+sortListItems.forEach((listItem) => {
+  listItem.addEventListener("click", () => {
+    sortListItems.forEach((listItem) =>
+      listItem.classList.remove("activeListItem")
+    );
+    toggleListItem(listItem);
+  });
+});
+
 //Prefill photo réf field input on single post contact form
 if (singlePhotoRef) {
-  photoRefInput.value = singlePhotoRef.innerHTML.replace('Référence : ','');
+  photoRefInput.value = singlePhotoRef.innerHTML.replace("Référence : ", "");
 }
-
 
 //Ajax requests
