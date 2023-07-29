@@ -847,6 +847,7 @@ h2 {
 
 .dropDown {
   width: 262px;
+  position: relative;
 }
 
 .dropDownBtn {
@@ -894,12 +895,15 @@ h2 {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   overflow: hidden;
-  visibility: hidden;
-  opacity: 1;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  z-index: 10;
 }
 
 .show-list {
-  visibility: visible;
+  display: block;
   opacity: 1;
 }
 

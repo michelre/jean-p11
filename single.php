@@ -6,7 +6,7 @@ while (have_posts()) : the_post(); ?>
         <div class="single-photo-and-description">
             <div class="single-description">
                 <h1><?php the_title() ?></h1>
-                <p>Référence : <?php echo get_field('reference'); ?></p>
+                <p class="single-photo-ref" >Référence : <?php echo get_field('reference'); ?></p>
                 <p>Catégorie : <?php echo strip_tags(get_the_term_list($post->ID, 'category')); ?></p>
                 <p>Format : <?php echo strip_tags(get_the_term_list($post->ID, 'format')); ?></p>
                 <p>Type : <?php echo get_field('type'); ?></p>

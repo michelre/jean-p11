@@ -22,6 +22,8 @@ const sortList = document.querySelector(".sort-list");
 const categoriesChevron = document.querySelector(".categories-chevron");
 const formatsChevron = document.querySelector(".formats-chevron");
 const sortChevron = document.querySelector(".sort-chevron");
+const photoRefInput = document.querySelector(".form-photo-ref");
+const singlePhotoRef = document.querySelector(".single-photo-ref");
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -95,12 +97,23 @@ function toggleDropdown(list, btn, chevron) {
   chevron.classList.toggle('chevron-up');
 }
 
+if (categoriesBtn) {
 categoriesBtn.addEventListener('click', () => {
   toggleDropdown(categoriesList, categoriesBtn, categoriesChevron)
 } )
+}
+
+if (formatsBtn) {
 formatsBtn.addEventListener('click', () => {
   toggleDropdown(formatsList, formatsBtn, formatsChevron)
 } )
+}
+if (sortBtn) {
 sortBtn.addEventListener('click', () => {
   toggleDropdown(sortList, sortBtn, sortChevron)
 } )
+}
+//Prefill photo réf field input on single post contact form
+if (singlePhotoRef) {
+  photoRefInput.value = singlePhotoRef.innerHTML.replace('Référence : ','');
+}
