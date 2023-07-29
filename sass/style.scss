@@ -7,10 +7,10 @@
  */
 
  @import './base/reset';
-
  @import './base/typography';
  @import './layout/header';
  @import './layout/footer';
+ @import './components/lightbox';
  @import './layout/contact-modal';
  @import './pages/single';
  @import './components/photo-card';

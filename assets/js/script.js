@@ -200,27 +200,26 @@ if (singlePhotoRef) {
 
 // JavaScript function to load more posts via AJAX
 function loadMorePosts() {
-  const ajaxurl = '/wp-admin/admin-ajax.php';
-
   // AJAX request
   jQuery.ajax({
-    url: ajaxurl,
-    type: 'post',
+    url: "/wp-admin/admin-ajax.php",
+    type: "post",
     data: {
-      action: 'load_more_posts', // The WordPress AJAX action hook
-     
+      action: "load_more_posts", // The WordPress AJAX action hook
     },
-    success: function(response) {
+    success: function (response) {
       // Append the new photos to the container
-      jQuery('.gallery-section').append(response);
-
+      jQuery(".gallery-section").append(response);
     },
-    error: function(error) {
+    error: function (error) {
       console.log(error);
-    }
+    },
   });
 }
 
 //Add eventlistener to load more photos
-const loadMoreButton = document.querySelector('.load-more-btn');
-loadMoreButton.addEventListener('click', loadMorePosts);
+const loadMoreButton = document.querySelector(".load-more-btn");
+loadMoreButton.addEventListener("click", loadMorePosts);
+
+
+//*****Lightbox******* */
