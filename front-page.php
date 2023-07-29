@@ -1,6 +1,7 @@
 <?php get_header() ?>
-<img class="banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/banner.png" alt="Photograph event">
-
+<section class="hero-section">
+    <img class="banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/banner.png" alt="Photograph event">
+</section>
 
 <section class="filter-section">
     <div class="left-filter-section">
@@ -66,8 +67,9 @@
     endwhile;
     wp_reset_postdata();
     ?>
-    <div class="mota-button load-more-btn">Charger plus</div>
+
 </section>
+<div class="mota-button load-more-btn">Charger plus</div>
 </main>
 
 <?php get_footer() ?>

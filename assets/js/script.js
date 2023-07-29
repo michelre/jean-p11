@@ -170,7 +170,6 @@ categoriesListItems.forEach((listItem) => {
 const formatsListItems = Array.from(
   document.getElementsByClassName("formatsListItem")
 );
-console.log(formatsListItems);
 formatsListItems.forEach((listItem) => {
   listItem.addEventListener("click", () => {
     formatsListItems.forEach((listItem) =>
@@ -199,4 +198,29 @@ if (singlePhotoRef) {
   photoRefInput.value = singlePhotoRef.innerHTML.replace("Référence : ", "");
 }
 
-//Ajax requests
+// JavaScript function to load more posts via AJAX
+function loadMorePosts() {
+  const ajaxurl = '/wp-admin/admin-ajax.php';
+
+  // AJAX request
+  jQuery.ajax({
+    url: ajaxurl,
+    type: 'post',
+    data: {
+      action: 'load_more_posts', // The WordPress AJAX action hook
+     
+    },
+    success: function(response) {
+      // Append the new photos to the container
+      jQuery('.gallery-section').append(response);
+
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+}
+
+//Add eventlistener to load more photos
+const loadMoreButton = document.querySelector('.load-more-btn');
+loadMoreButton.addEventListener('click', loadMorePosts);
