@@ -24,6 +24,8 @@ const formatsChevron = document.querySelector(".formats-chevron");
 const sortChevron = document.querySelector(".sort-chevron");
 const photoRefInput = document.querySelector(".form-photo-ref");
 const singlePhotoRef = document.querySelector(".single-photo-ref");
+const gallerySection = document.querySelector(".gallery-ssection");
+const footer = document.querySelector(".footer");
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -221,5 +223,54 @@ function loadMorePosts() {
 const loadMoreButton = document.querySelector(".load-more-btn");
 loadMoreButton.addEventListener("click", loadMorePosts);
 
+// //*****Lightbox********/
 
-//*****Lightbox******* */
+// class LightBox {
+//   static init() {
+//     const photoLinks = document
+//       .querySelectorAll(".fullscreen-icon")
+//       .forEach((photoLink) => {
+//         photoLink.addEventListener("click", (e) => {
+//           e.preventDefault();
+//           new LightBox(
+//             e.currentTarget.previousElementSibling.getAttribute("src")
+//           );
+//         });
+//       });
+//       //create array of DOM photo links to incldue in lightbox
+//     const gallery = [];
+//     const pushToGallery = document
+//       .querySelectorAll(".fullscreen-icon")
+//       .forEach((photoLink) =>
+//         gallery.push(photoLink.previousElementSibling.getAttribute("src"))
+//       );
+//     console.log(gallery);
+//   }
+
+//   constructor(url, images) {
+//     this.element = this.buildDOM(url);
+//     this.images = images;
+//     footer.appendChild(this.element);
+//   }
+
+// loadImage (url) {
+//   const image = new Image();
+//   const container = this.element.querySelector('lightbox-container')
+//   image.onload = function (){
+//     container.appendChild(image);
+//   }
+// }
+
+//   buildDOM(url) {
+//     const dom = document.createElement("div");
+//     dom.classList.add("lightbox");
+//     dom.innerHTML = `<img src="./assets/images/lightbox-close-btn.png" class="lightbox-close">
+//   <img src="./assets/images/lightbox-next-arrow.png" class="lightbox-next" alt="photo suivante">
+//   <img src="./assets/images/lightbox-prev-arrow.png" class="lightbox-prev" alt="photo précédente">
+//   <div class="lightbox-container">
+//       <img src="${url}" class="lightbox-image">
+//   </div>`;
+//   }
+// }
+
+// LightBox.init();

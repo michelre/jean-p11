@@ -1,5 +1,5 @@
 .lightbox {
-  // display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -83,4 +83,21 @@
   to {
     opacity: 1;
   }
+}
+
+.lightbox-ref, .lightbox-title {
+  position: fixed;
+  bottom: 20px;
+  color: white;
+  @media screen and (max-width: 900px) { 
+    bottom: 10%;
+  }
+}
+
+.lightbox-ref {
+  left: 10%;
+}
+
+.lightbox-title {
+  right: 10%;
 }
