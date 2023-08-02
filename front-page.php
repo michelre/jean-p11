@@ -16,7 +16,7 @@
                     'orderby' => 'name'
                 ));
                 foreach ($categories as $category) {
-                    echo '<li class="dropDownListItem categoriesListItem ' . $category->name . 'ListItem " ><span class="list-padding">' . $category->name . '</li>';
+                    echo '<li data-id="' . $category->term_id . '" class="dropDownListItem categoriesListItem ' . $category->name . 'ListItem " ><span class="list-padding">' . $category->name . '</li>';
                 }
                 ?>
             </ul>
@@ -32,7 +32,7 @@
                     'orderby' => 'name'
                 ));
                 foreach ($formats as $format) {
-                    echo '<li class="dropDownListItem formatsListItem ' . $format->name . 'ListItem " ><span class="list-padding">' . $format->name . '</li>';
+                    echo '<li data-id="' . $format->term_id . '" class="dropDownListItem formatsListItem ' . $format->name . 'ListItem " ><span class="list-padding">' . $format->name . '</li>';
                 }
                 ?>
             </ul>
@@ -45,8 +45,8 @@
                 <img class="chevron sort-chevron" src="<?php echo get_template_directory_uri(); ?>/assets/images/chevron-down.png?>" alt="">
             </div>
             <ul class="dropDownList sort-list">
-                <li class="dropDownListItem sortListItem"><span class="list-padding">Des plus récentes aux plus anciennes</span></li>
-                <li class="dropDownListItem sortListItem"><span class="list-padding">Des plus anciennes au plus récentes</span></li>
+                <li data-order="DESC" class="dropDownListItem sortListItem"><span class="list-padding">Des plus récentes aux plus anciennes</span></li>
+                <li data-order="ASC" class="dropDownListItem sortListItem"><span class="list-padding">Des plus anciennes au plus récentes</span></li>
             </ul>
         </div>
     </div>

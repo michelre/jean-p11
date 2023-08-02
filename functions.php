@@ -26,10 +26,12 @@ add_action('wp_enqueue_scripts', 'nathmota_enqueue_scripts');
 // Callback function to load more photos
 function load_more_posts_callback()
 {
+    $page = intval($_GET['page']);
 
     // Arguments for WP_Query to get more photos
     $args = array(
         'post_type' => 'photo',
+        'offset' => ($page - 1) * 12
     );
 
     $loadQuery = new WP_Query($args);
@@ -50,6 +52,51 @@ function load_more_posts_callback()
     die();
 }
 
+function filter_posts_callback(){
+    // Arguments for WP_Query to get more photos
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'order' => $_GET['sort'],
+    );
+
+    $taxQuery = [];
+    if($_GET['format'] !== 'null') {
+        $taxQuery[] = [
+            'taxonomy' => 'format',
+            'terms' => $_GET['format']
+        ];
+    }
+
+    if($_GET['category'] !== 'null') {
+        $taxQuery[] = [
+            'taxonomy' => 'category',
+            'terms' => $_GET['category']
+        ];
+    }
+
+    $loadQuery = new WP_Query($args);
+
+    $loadQuery->set('tax_query', $taxQuery);
+
+    $posts = $loadQuery->get_posts();
+
+    // Start the loop to display the additional photo
+    for($i = 0; $i < count($posts); $i++){
+        $post = $posts[$i];
+        get_template_part('template-parts/photo-card', '', (array)$post);
+    }
+
+    // Always reset the post data when you're done with the custom query
+    wp_reset_postdata();
+
+    // Important: stop execution to prevent a trailing 0 from being added to the response
+    die();
+}
+
 // Hook the AJAX action to the function
 add_action('wp_ajax_load_more_posts', 'load_more_posts_callback');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts_callback');
+
+add_action('wp_ajax_filter_posts', 'filter_posts_callback');
+add_action('wp_ajax_nopriv_filter_posts', 'filter_posts_callback');

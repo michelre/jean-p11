@@ -200,28 +200,61 @@ if (singlePhotoRef) {
   photoRefInput.value = singlePhotoRef.innerHTML.replace("Référence : ", "");
 }
 
+var filters = {
+  category: null,
+  format: null,
+  sort: 'DESC'
+}
+
+var page = 1
+
 // JavaScript function to load more posts via AJAX
 function loadMorePosts() {
   // AJAX request
-  jQuery.ajax({
-    url: "/wp-admin/admin-ajax.php",
-    type: "post",
-    data: {
-      action: "load_more_posts", // The WordPress AJAX action hook
-    },
-    success: function (response) {
-      // Append the new photos to the container
-      jQuery(".gallery-section").append(response);
-    },
-    error: function (error) {
-      console.log(error);
-    },
-  });
+  page += 1
+  fetch("/wp-admin/admin-ajax.php?action=load_more_posts&page=" + page)
+      .then(res => res.text())
+      .then(data => {
+        jQuery(".gallery-section").append(data);
+      })
+}
+
+function filterPosts() {
+  const params = new URLSearchParams({...filters, action: 'filter_posts'})
+  fetch(`/wp-admin/admin-ajax.php?${params}`)
+      .then(res => res.text())
+      .then(data => {
+        jQuery(".gallery-section")
+            .empty()
+            .append(data);
+      })
 }
 
 //Add eventlistener to load more photos
 const loadMoreButton = document.querySelector(".load-more-btn");
 loadMoreButton.addEventListener("click", loadMorePosts);
+
+
+document.querySelectorAll('.categoriesListItem').forEach((item) => {
+  item.addEventListener('click', () => {
+    filters.category = item.dataset['id']
+    filterPosts()
+  })
+})
+
+document.querySelectorAll('.formatsListItem').forEach((item) => {
+  item.addEventListener('click', () => {
+    filters.format = item.dataset['id']
+    filterPosts()
+  })
+})
+
+document.querySelectorAll('.sortListItem').forEach((item) => {
+  item.addEventListener('click', () => {
+    filters.sort = item.dataset['order']
+    filterPosts()
+  })
+})
 
 // //*****Lightbox********/
 
