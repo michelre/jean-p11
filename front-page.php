@@ -15,6 +15,7 @@
                     'taxonomy' => 'category',
                     'orderby' => 'name'
                 ));
+                ?><li data-id class="dropDownListItem categoryReset "><span class="list-padding"></span></li><?php
                 foreach ($categories as $category) {
                     echo '<li data-id="' . $category->term_id . '" class="dropDownListItem categoriesListItem ' . $category->name . 'ListItem " ><span class="list-padding">' . $category->name . '</li>';
                 }
@@ -31,6 +32,7 @@
                     'taxonomy' => 'format',
                     'orderby' => 'name'
                 ));
+                ?><li data-id  class="dropDownListItem formatsReset "><span class="list-padding"></span></li><?php
                 foreach ($formats as $format) {
                     echo '<li data-id="' . $format->term_id . '" class="dropDownListItem formatsListItem ' . $format->name . 'ListItem " ><span class="list-padding">' . $format->name . '</li>';
                 }

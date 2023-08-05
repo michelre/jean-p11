@@ -232,16 +232,31 @@ function filterPosts() {
       })
 }
 
+function resetCategoryFilter() {
+  filters.category = null; // Reset the format filter to empty or null
+  filterPosts(); // Call the filtering function to apply the reset
+}
+
+function resetFormatsFilter() {
+  filters.format = null; // Reset the format filter to empty or null
+  filterPosts(); // Call the filtering function to apply the reset
+}
+
 //Add eventlistener to load more photos
 const loadMoreButton = document.querySelector(".load-more-btn");
 loadMoreButton.addEventListener("click", loadMorePosts);
 
+//Add event listeners on filters
 document.querySelectorAll('.categoriesListItem').forEach((item) => {
   item.addEventListener('click', () => {
     filters.category = item.dataset['id']
     filterPosts()
   })
 })
+
+document.querySelector('.categoryReset').addEventListener('click', resetCategoryFilter);
+
+document.querySelector('.formatsReset').addEventListener('click', resetFormatsFilter);
 
 document.querySelectorAll('.formatsListItem').forEach((item) => {
   item.addEventListener('click', () => {
