@@ -205,31 +205,29 @@ if (singlePhotoRef) {
 var filters = {
   category: null,
   format: null,
-  sort: 'DESC'
-}
+  sort: "DESC",
+};
 
-var page = 1
+var page = 1;
 
 // JavaScript function to load more posts via AJAX
 function loadMorePosts() {
   // AJAX request
   page += 1;
   fetch("/wp-admin/admin-ajax.php?action=load_more_posts&page=" + page)
-      .then(res => res.text())
-      .then(data => {
-        jQuery(".gallery-section").append(data);
-      })
+    .then((res) => res.text())
+    .then((data) => {
+      jQuery(".gallery-section").append(data);
+    });
 }
 
 function filterPosts() {
-  const params = new URLSearchParams({...filters, action: 'filter_posts'})
+  const params = new URLSearchParams({ ...filters, action: "filter_posts" });
   fetch(`/wp-admin/admin-ajax.php?${params}`)
-      .then(res => res.text())
-      .then(data => {
-        jQuery(".gallery-section")
-            .empty()
-            .append(data);
-      })
+    .then((res) => res.text())
+    .then((data) => {
+      jQuery(".gallery-section").empty().append(data);
+    });
 }
 
 function resetCategoryFilter() {
@@ -247,30 +245,34 @@ const loadMoreButton = document.querySelector(".load-more-btn");
 loadMoreButton.addEventListener("click", loadMorePosts);
 
 //Add event listeners on filters
-document.querySelectorAll('.categoriesListItem').forEach((item) => {
-  item.addEventListener('click', () => {
-    filters.category = item.dataset['id']
-    filterPosts()
-  })
-})
+document.querySelectorAll(".categoriesListItem").forEach((item) => {
+  item.addEventListener("click", () => {
+    filters.category = item.dataset["id"];
+    filterPosts();
+  });
+});
 
-document.querySelector('.categoryReset').addEventListener('click', resetCategoryFilter);
+document
+  .querySelector(".categoryReset")
+  .addEventListener("click", resetCategoryFilter);
 
-document.querySelector('.formatsReset').addEventListener('click', resetFormatsFilter);
+document
+  .querySelector(".formatsReset")
+  .addEventListener("click", resetFormatsFilter);
 
-document.querySelectorAll('.formatsListItem').forEach((item) => {
-  item.addEventListener('click', () => {
-    filters.format = item.dataset['id']
-    filterPosts()
-  })
-})
+document.querySelectorAll(".formatsListItem").forEach((item) => {
+  item.addEventListener("click", () => {
+    filters.format = item.dataset["id"];
+    filterPosts();
+  });
+});
 
-document.querySelectorAll('.sortListItem').forEach((item) => {
-  item.addEventListener('click', () => {
-    filters.sort = item.dataset['order']
-    filterPosts()
-  })
-})
+document.querySelectorAll(".sortListItem").forEach((item) => {
+  item.addEventListener("click", () => {
+    filters.sort = item.dataset["order"];
+    filterPosts();
+  });
+});
 
 //*****Lightbox********/
 
@@ -325,13 +327,13 @@ class LightBox {
     const container = this.element.querySelector("lightbox-container");
     const lightboxRef = this.element.querySelector("lightbox-ref");
     const lightboxTitle = this.element.querySelector("lightbox-title");
-    lightboxRef.textContent = '';
-    lightboxTitle.textContent = '';
+    lightboxRef.textContent = "";
+    lightboxTitle.textContent = "";
     image.onload = function () {
       console.log("loaded");
       container.appendChild(image);
       lightboxRef.textContent = ref;
-    lightboxTitle.textContent = title;
+      lightboxTitle.textContent = title;
     };
     image.src = url;
   }
