@@ -26,6 +26,8 @@ const photoRefInput = document.querySelector(".form-photo-ref");
 const singlePhotoRef = document.querySelector(".single-photo-ref");
 const gallerySection = document.querySelector(".gallery-ssection");
 const footer = document.querySelector(".footer");
+const lightbox = document.querySelector(".lightbox");
+const lightboxCloseBtn = document.querySelector(".lightbox-close");
 
 //Mobile menu handling
 burgerMenu.addEventListener("click", openMobileMenu);
@@ -211,7 +213,7 @@ var page = 1
 // JavaScript function to load more posts via AJAX
 function loadMorePosts() {
   // AJAX request
-  page += 1
+  page += 1;
   fetch("/wp-admin/admin-ajax.php?action=load_more_posts&page=" + page)
       .then(res => res.text())
       .then(data => {
@@ -230,17 +232,31 @@ function filterPosts() {
       })
 }
 
+function resetCategoryFilter() {
+  filters.category = null; // Reset the format filter to empty or null
+  filterPosts(); // Call the filtering function to apply the reset
+}
+
+function resetFormatsFilter() {
+  filters.format = null; // Reset the format filter to empty or null
+  filterPosts(); // Call the filtering function to apply the reset
+}
+
 //Add eventlistener to load more photos
 const loadMoreButton = document.querySelector(".load-more-btn");
 loadMoreButton.addEventListener("click", loadMorePosts);
 
-
+//Add event listeners on filters
 document.querySelectorAll('.categoriesListItem').forEach((item) => {
   item.addEventListener('click', () => {
     filters.category = item.dataset['id']
     filterPosts()
   })
 })
+
+document.querySelector('.categoryReset').addEventListener('click', resetCategoryFilter);
+
+document.querySelector('.formatsReset').addEventListener('click', resetFormatsFilter);
 
 document.querySelectorAll('.formatsListItem').forEach((item) => {
   item.addEventListener('click', () => {
@@ -256,54 +272,81 @@ document.querySelectorAll('.sortListItem').forEach((item) => {
   })
 })
 
-// //*****Lightbox********/
+//*****Lightbox********/
 
-// class LightBox {
-//   static init() {
-//     const photoLinks = document
-//       .querySelectorAll(".fullscreen-icon")
-//       .forEach((photoLink) => {
-//         photoLink.addEventListener("click", (e) => {
-//           e.preventDefault();
-//           new LightBox(
-//             e.currentTarget.previousElementSibling.getAttribute("src")
-//           );
-//         });
-//       });
-//       //create array of DOM photo links to incldue in lightbox
-//     const gallery = [];
-//     const pushToGallery = document
-//       .querySelectorAll(".fullscreen-icon")
-//       .forEach((photoLink) =>
-//         gallery.push(photoLink.previousElementSibling.getAttribute("src"))
-//       );
-//     console.log(gallery);
-//   }
+//close Lightbox
+function closeLightbox() {
+  lightbox.style.display = "none";
+}
+lightboxCloseBtn.addEventListener("click", closeLightbox);
 
-//   constructor(url, images) {
-//     this.element = this.buildDOM(url);
-//     this.images = images;
-//     footer.appendChild(this.element);
-//   }
+class LightBox {
+  static init() {
+    //create array of DOM photo links to incldue in lightbox
+    const gallery = [];
+    const pushToGallery = document
+      .querySelectorAll(".fullscreen-icon")
+      .forEach((photoLink) =>
+        gallery.push({
+          url: photoLink.previousElementSibling.getAttribute("src"),
+          ref: photoLink.dataset.reference,
+          category: photoLink.dataset.category,
+        })
+      );
 
-// loadImage (url) {
-//   const image = new Image();
-//   const container = this.element.querySelector('lightbox-container')
-//   image.onload = function (){
-//     container.appendChild(image);
-//   }
-// }
+    const photoLinks = document
+      .querySelectorAll(".fullscreen-icon")
+      .forEach((photoLink) => {
+        photoLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          new LightBox(
+            e.currentTarget.previousElementSibling.getAttribute("src"),
+            e.currentTarget.dataset.reference,
+            e.currentTarget.dataset.category,
+            gallery
+          );
+          lightbox.style.display = "block";
+        });
+      });
+    console.log(gallery);
+  }
 
-//   buildDOM(url) {
-//     const dom = document.createElement("div");
-//     dom.classList.add("lightbox");
-//     dom.innerHTML = `<img src="./assets/images/lightbox-close-btn.png" class="lightbox-close">
-//   <img src="./assets/images/lightbox-next-arrow.png" class="lightbox-next" alt="photo suivante">
-//   <img src="./assets/images/lightbox-prev-arrow.png" class="lightbox-prev" alt="photo précédente">
-//   <div class="lightbox-container">
-//       <img src="${url}" class="lightbox-image">
-//   </div>`;
-//   }
-// }
+  constructor(url, ref, title, images) {
+    this.element = this.buildDOM(url, ref, title, images);
+    this.images = images;
+    this.loadImage(url, ref, title);
+    lightbox.appendChild(this.element);
+  }
 
-// LightBox.init();
+  loadImage(url, ref, title) {
+    this.url = null;
+
+    const image = new Image();
+    const container = this.element.querySelector("lightbox-container");
+    const lightboxRef = this.element.querySelector("lightbox-ref");
+    const lightboxTitle = this.element.querySelector("lightbox-title");
+    lightboxRef.textContent = '';
+    lightboxTitle.textContent = '';
+    image.onload = function () {
+      console.log("loaded");
+      container.appendChild(image);
+      lightboxRef.textContent = ref;
+    lightboxTitle.textContent = title;
+    };
+    image.src = url;
+  }
+
+  buildDOM(url, ref, title, images) {
+    const dom = document.createElement("div");
+    dom.classList.add("lightbox-content");
+    dom.innerHTML = `<div class="lightbox-container">
+    <img src="${url}" alt="">
+    </div>
+    <p class="lightbox-ref">${ref}</p>
+    <p class="lightbox-title">${title}</p>`;
+
+    return dom;
+  }
+}
+
+LightBox.init();

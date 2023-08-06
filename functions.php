@@ -28,6 +28,7 @@ function load_more_posts_callback()
 {
     $page = intval($_GET['page']);
 
+    $page = intval($_GET['page']);
     // Arguments for WP_Query to get more photos
     $args = array(
         'post_type' => 'photo',
