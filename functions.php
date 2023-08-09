@@ -19,6 +19,7 @@ add_action('wp_enqueue_scripts', 'nathmota_enqueue_styles');
 function nathmota_enqueue_scripts()
 {
     wp_enqueue_script('nathmota_script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '', true);
+    wp_localize_script('nathmota_script', 'data', ['assetsBaseURL' => get_template_directory_uri()]);
 }
 
 add_action('wp_enqueue_scripts', 'nathmota_enqueue_scripts');
@@ -26,6 +27,7 @@ add_action('wp_enqueue_scripts', 'nathmota_enqueue_scripts');
 // Callback function to load more photos
 function load_more_posts_callback()
 {
+    $page = intval($_GET['page']);
 
     $page = intval($_GET['page']);
     // Arguments for WP_Query to get more photos

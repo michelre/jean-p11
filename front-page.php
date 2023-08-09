@@ -72,6 +72,7 @@
 
 </section>
 <div class="mota-button load-more-btn">Charger plus</div>
+<div class="lightbox-container"></div>
 </main>
 
 <?php get_footer() ?>

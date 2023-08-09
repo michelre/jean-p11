@@ -1,5 +1,4 @@
-.lightbox {
-  // display: none;
+.lightbox-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,12 +8,54 @@
   z-index: 40;
   animation: lightboxIn;
   animation-duration: 500ms;
+  overflow: hidden;
+  display: none;
 }
 
-.lightbox-container {
+.lightbox-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.lightbox {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  transition: all .5s linear;
+}
+
+.lightbox li, .lightbox ul, .lightbox img {
+  width: 100%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.lightbox li {
+  padding: 20px 0;
+}
+
+.lightbox p {
+  color: white;
+}
+
+.lightbox img {
+  height: 80vh;
+  object-fit: cover;
+}
+
+.lightbox ul {
+  display: flex;
+  transition: all .5s linear;
+}
+
+/*.lightbox-container {
   overflow: hidden;
   z-index: 42;
-}
+}*/
 
 .lightbox-next,
 .lightbox-prev {
@@ -56,7 +97,7 @@
   }
 }
 
-.lightbox-container {
+/*.lightbox-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +108,7 @@
     margin-left: 16px;
     margin-right: 16px;
   }
-}
+}*/
 
 .lightbox-image {
   max-width: 100%;
