@@ -15,10 +15,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -53,12 +51,9 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -66,10 +61,8 @@ hr {
    * 2. Correct the odd `em` font sizing in all browsers.
    */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -86,12 +79,9 @@ a {
    * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
    */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  text-decoration: underline dotted;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -109,10 +99,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -162,14 +150,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -237,18 +221,12 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -271,10 +249,8 @@ textarea {
    */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -290,10 +266,8 @@ textarea {
    * 2. Correct the outline style in Safari.
    */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -308,10 +282,8 @@ textarea {
    * 2. Change font properties to `inherit` in Safari.
    */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -392,7 +364,6 @@ a:visited {
   .desktop-header {
     display: none;
   }
-
   .mobile-header {
     display: flex;
   }
@@ -502,7 +473,6 @@ a:visited {
   .footer-nav li {
     align-self: center;
   }
-
   .rights {
     padding-top: 24px;
   }
@@ -534,7 +504,9 @@ a:visited {
   margin: auto;
   overflow: hidden;
   display: flex;
+  align-items: center;
   transition: all 0.5s linear;
+  position: relative;
 }
 
 .lightbox li, .lightbox ul, .lightbox img {
@@ -559,12 +531,9 @@ a:visited {
 .lightbox ul {
   display: flex;
   transition: all 0.5s linear;
+  padding-top: 5%;
 }
 
-/*.lightbox-container {
-  overflow: hidden;
-  z-index: 42;
-}*/
 .lightbox-next,
 .lightbox-prev {
   position: fixed;
@@ -581,7 +550,7 @@ a:visited {
 }
 @media screen and (max-width: 900px) {
   .lightbox-next,
-.lightbox-prev {
+  .lightbox-prev {
     top: 95%;
   }
 }
@@ -609,18 +578,6 @@ a:visited {
   opacity: 1;
 }
 
-/*.lightbox-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin-left: 140px;
-  margin-right: 140px;
-  @media screen and (max-width: 900px) {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-}*/
 .lightbox-image {
   max-width: 100%;
   height: auto;
@@ -638,7 +595,10 @@ a:visited {
 }
 .lightbox-ref, .lightbox-title {
   position: fixed;
-  bottom: 20px;
+  bottom: 5%;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  z-index: 100;
   color: white;
 }
 @media screen and (max-width: 900px) {
@@ -647,8 +607,21 @@ a:visited {
   }
 }
 
+.lightbox-text {
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 900px) {
+  .lightbox-text {
+    display: none;
+  }
+}
+
 .lightbox-ref {
-  left: 10%;
+  left: 50%;
 }
 
 .lightbox-title {
@@ -740,7 +713,6 @@ a:visited {
   .contact-modal-content {
     height: 100vh;
   }
-
   .contact-modal-header img {
     height: 55px;
   }
@@ -778,7 +750,7 @@ a:visited {
 }
 @media screen and (max-width: 900px) {
   .single-description,
-.single-photo-image-container {
+  .single-photo-image-container {
     width: 100vw;
   }
 }

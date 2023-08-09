@@ -289,7 +289,7 @@ function initLightbox() {
     const cardData = Array.from(cards).map(e => {
         return {
             image: e.querySelector('img').getAttribute('src'),
-            reference: e.querySelector('.photo-card-title').textContent,
+            reference: e.querySelector('.fullscreen-icon').dataset.reference,
             category: e.querySelector('.photo-card-category').textContent,
         }
     })
@@ -345,14 +345,14 @@ class Lightbox {
 
         const lightboxSlides = document.createElement('ul')
         lightbox.appendChild(lightboxSlides)
-
+        console.log(this.data);
         const slides = this.data.map(d => {
             return `<li>
         <div>
-            <img src="${d.image}" alt="${d.reference}"/>
-            <div>
-                <p>${d.reference}</p>
-                <p>${d.category}</p>
+            <img src="${d.image}" alt="${d.title}"/>
+            <div class="lightbox-text" >
+                <p > ${d.reference}</p>
+                <p >${d.category}</p>
             </div>
         </div>
       </li>`
@@ -366,13 +366,13 @@ class Lightbox {
         if (this.data.length > 1) {
             const buttons = document.createElement('div')
             buttons.classList.add('lightbox-buttons')
-            const prev = document.createElement('button')
+            const prev = document.createElement('div')
             prev.classList.add('lightbox-prev')
-            const next = document.createElement('button')
+            const next = document.createElement('div')
             next.classList.add('lightbox-next')
 
-            prev.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/left-arrow.png" />`
-            next.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/right-arrow.png" />`
+            prev.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/lightbox-prev-arrow.png" />`
+            next.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/lightbox-next-arrow.png" />`
 
             next.addEventListener('click', () => {
                 if (this.idx === this.data.length - 1) {
@@ -398,9 +398,9 @@ class Lightbox {
 
             
         }
-        const close = document.createElement('button')
+        const close = document.createElement('div')
             close.classList.add('lightbox-close')
-            close.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/close-icon.png" />`
+            close.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/lightbox-close-btn.png" />`
 
             container.appendChild(close)
 
