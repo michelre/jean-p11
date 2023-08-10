@@ -19,10 +19,7 @@ add_action('wp_enqueue_scripts', 'nathmota_enqueue_styles');
 function nathmota_enqueue_scripts()
 {
     wp_enqueue_script('nathmota_script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '', true);
-    wp_localize_script('nathmota_script', 'data', [
-        'assetsBaseURL' => get_template_directory_uri(),
-        'ajaxURL' => admin_url( 'admin-ajax.php' )
-    ]);
+    wp_localize_script('nathmota_script', 'data', ['assetsBaseURL' => get_template_directory_uri()]);
 }
 
 add_action('wp_enqueue_scripts', 'nathmota_enqueue_scripts');
@@ -65,9 +62,7 @@ function filter_posts_callback(){
         'order' => $_GET['sort'],
     );
 
-    // Taxquery = tableau de tableau [[], []]
     $taxQuery = [];
-    // $_GET est une variable globale. Les clés ne sont pas nulles mais portent la chaine "null"
     if($_GET['format'] !== 'null') {
         $taxQuery[] = [
             'taxonomy' => 'format',

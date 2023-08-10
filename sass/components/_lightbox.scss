@@ -25,7 +25,9 @@
   margin: auto;
   overflow: hidden;
   display: flex;
+  align-items: center;
   transition: all .5s linear;
+  position: relative;
 }
 
 .lightbox li, .lightbox ul, .lightbox img {
@@ -50,12 +52,9 @@
 .lightbox ul {
   display: flex;
   transition: all .5s linear;
+  padding-top: 5%;
 }
 
-/*.lightbox-container {
-  overflow: hidden;
-  z-index: 42;
-}*/
 
 .lightbox-next,
 .lightbox-prev {
@@ -70,7 +69,7 @@
     opacity: 1;
   }
   @media screen and (max-width: 900px) {
-    top: 95%;
+   top: 95%;
   }
 }
 
@@ -97,18 +96,6 @@
   }
 }
 
-/*.lightbox-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin-left: 140px;
-  margin-right: 140px;
-  @media screen and (max-width: 900px) {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-}*/
 
 .lightbox-image {
   max-width: 100%;
@@ -128,15 +115,29 @@
 
 .lightbox-ref, .lightbox-title {
   position: fixed;
-  bottom: 20px;
+  bottom: 5%;
+  font-family: $main-font;
+  text-transform: uppercase;
+  z-index: 100;
   color: white;
   @media screen and (max-width: 900px) { 
     bottom: 10%;
   }
 }
 
+.lightbox-text {
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  font-family: $main-font;
+  text-transform: uppercase;
+  @media screen and (max-width: 900px) { 
+   display: none;
+  }
+}
+
 .lightbox-ref {
-  left: 10%;
+  left: 50%;
 }
 
 .lightbox-title {
