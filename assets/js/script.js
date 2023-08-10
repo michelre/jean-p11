@@ -219,7 +219,7 @@ var page = 1
 function loadMorePosts() {
     // AJAX request
     page += 1;
-    fetch("/wp-admin/admin-ajax.php?action=load_more_posts&page=" + page)
+    fetch(`${data.ajaxURL}?action=load_more_posts&page=${page}`)
         .then(res => res.text())
         .then(data => {
             jQuery(".gallery-section").append(data);
@@ -228,7 +228,7 @@ function loadMorePosts() {
 
 function filterPosts() {
     const params = new URLSearchParams({...filters, action: 'filter_posts'})
-    fetch(`/wp-admin/admin-ajax.php?${params}`)
+    fetch(`${data.ajaxURL}?${params}`)
         .then(res => res.text())
         .then(data => {
             jQuery(".gallery-section")
@@ -396,16 +396,16 @@ class Lightbox {
             buttons.appendChild(next)
             container.appendChild(buttons)
 
-            const close = document.createElement('button')
-            close.classList.add('lightbox-close')
-            close.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/close-icon.png" />`
-
-            container.appendChild(close)
-
-            close.addEventListener('click', () => {
-                this.close()
-            })
         }
+        const close = document.createElement('button')
+        close.classList.add('lightbox-close')
+        close.innerHTML = `<img src="${data.assetsBaseURL}/assets/images/close-icon.png" />`
+
+        container.appendChild(close)
+
+        close.addEventListener('click', () => {
+            this.close()
+        })
     }
 
 
